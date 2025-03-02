@@ -25,6 +25,19 @@ static void PutData(std::string inName, std::string favDessert, std::string DOB)
     (*person)[2] = DOB;
 }
 
+static void PrintData(std::string inName) {
+    std::array<std::string, 3> person{ personArray[hashFunction(inName)] };
+
+    for (int i = 0; i < 3; i++)
+        std::cout << person[i] << std::endl;
+}
+
+static void PrintAll() {
+
+    for (int i = 0; i < 7; i++)
+        PrintData(personArray[i][0]);
+}
+
 int main() {
     std::cout << "Eisig Liang - 2 Mar. 2025\n";
 
