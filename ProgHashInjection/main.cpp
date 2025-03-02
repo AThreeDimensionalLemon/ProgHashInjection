@@ -30,6 +30,8 @@ static void PrintData(std::string inName) {
 
     for (int i = 0; i < 3; i++)
         std::cout << person[i] << std::endl;
+
+    std::cout << std::endl;
 }
 
 static void PrintAll() {
@@ -39,14 +41,32 @@ static void PrintAll() {
 }
 
 int main() {
-    std::cout << "Eisig Liang - 2 Mar. 2025\n";
+    std::cout << "Eisig Liang - 2 Mar. 2025\n\nInput the 7 persons: ";
 
-    std::array<std::string, 7> Name{ "J", "Bo", "Tuy", "Alta", "Kobet", "Teddie", "Sueanna" };
-    std::array<std::string, 7> DOB{ "1/5/2001","2/6/2002","3/7/2003","4/8/2004","5/9/2005","6/10/2006" };
-    std::array<std::string, 7> FavDessert{ "Cheese Cake", "Vanilla Ice Cream", "Fruit Salad", "Chocolate pudding", "Orange Jell-O", "Apply Pie", "Tres Leches Cake" };
+    Person J("J", "Cheese Cake", "1/5/2001");
+    Person Bo("Bo", "Vanilla Ice Cream", "2/6/2002");
+    Person Tuy("Tuy", "Fruit Salad", "3/7/2003");
+    Person Alta("Alta", "Chocolate pudding", "4/8/2004");
+    Person Kobet("Kobet", "Orange Jell-O", "5/9/2005");
+    Person Teddie("Teddie", "Apple Pie", "6/10/2006");
+    Person Sueanna("Sueanna", "Tres Leches Cake", "7/10/2007");
 
-    for (int i = 0; i < 7; i++)
-        PutData(Name[i], FavDessert[i], DOB[i]);
+    std::array<Person, 7> iterationArray { J, Bo, Tuy, Alta, Kobet, Teddie, Sueanna };
+    for (int i = 0; i < 7; i++) {
+        Person person = iterationArray[i];
+        PutData(person.getName(), person.getFavDesserts(), person.getDOB());
+    }
 
+    std::cout << "Done\n\nPrint out the data for the 7 persons:\n";
+    PrintAll();
 
+    std::cout << "Done\n\nPrint out data for just 1 person: ";
+
+    std::string name;
+    std::cin >> name;
+
+    PrintData(name);
+
+    std::cout << "Done";
+    return 0;
 }
